@@ -1,0 +1,38 @@
+# Node.js dependencies
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# SSL Certificates and Keys (ensure these are not pushed to GitHub)
+/cert/cert.pem
+/cert/key.pem
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Build output
+/dist
+/build
+
+# npm package lock file (if not needed)
+package-lock.json
+yarn.lock
+
+# Optional: Ignore test coverage directory
+/coverage
+
+# Optional: Ignore temp files
+*.swp
+*.swo
+*.bak

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <script>
+    async function bookAppointment(event) {
+        // Prevent default form submission
+        event.preventDefault();
+
+        // Collect form data
+        const appointmentDetails = {
+            name: document.getElementById('name').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            phoneNumber: document.getElementById('phoneNumber').value
+        };
+
+        // Get the token from localStorage
+        const token = localStorage.getItem('token');
+
+        // Send the request to the backend
+        const response = await fetch('/api/appointment/book', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token  // Include the token in the header
+            },
+            body: JSON.stringify(appointmentDetails)
+        });
+
+        // Handle the response
+        const data = await response.json();
+        if (response.ok) {
+            alert("Appointment booked successfully");
+        } else {
+            alert(data.message || "Booking failed");
+        }
+    }
+    </script>
+</head>
+<body>
+    <h2>Book Appointment</h2>
+    <form onsubmit="bookAppointment(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        <br>
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+        <br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" required>
+        <br>
+        <button type="submit">Book Appointment</button>
+    </form>
+</body>
+</html>
