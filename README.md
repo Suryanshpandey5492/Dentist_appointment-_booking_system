@@ -1,15 +1,13 @@
 Add a .env File for setting the Environment variables:
 
-DB_USER=postgres
+MONGO_URI=mongodb+srv://dentist:host@cluster0.l6uus.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
-DB_HOST=localhost
+JWT_SECRET=your_jwt_secret
 
-DB_NAME=json
+EMAIL= 
 
-DB_PASSWORD=host
+EMAIL_PASSWORD=
 
-DB_PORT=5432
-
-JWT_SECRET=your_secret_key
+RECIPIENT_EMAIL=
 
 PORT=5000
